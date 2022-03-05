@@ -17,7 +17,8 @@ SQL = [
 with DAG(
     dag_id='dag_with_postgres_operator_v01',
     degault_args = default_args,
-    start_date=datetime(2022,03,03),
+    start_date=datetime(2022,3,3),
+    catchup=False,
     schedule_interval='0 0 * * *'
 ) as dag:
     task1 = CloudSQLExecuteQueryOperator(
