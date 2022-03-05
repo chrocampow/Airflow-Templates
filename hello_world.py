@@ -24,7 +24,7 @@ with DAG(
 ) as dag:
     task1 = CloudSQLExecuteQueryOperator(
         task_id='create_postgres_table',
-        gcp_cloudsql_conn_id='google_postgres',
+        gcp_cloudsql_conn_id='google_cloud_default',
         sql=SQL
     )
     hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hello, dag=dag)
