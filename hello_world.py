@@ -8,13 +8,12 @@ def print_hello():
     return 'Hello world from first Airflow DAG crisonew3!'
 
 SQL = [
-    'CREATE TABLE IF NOT EXISTS TABLE_TEST (I INTEGER)',
-    'CREATE TABLE IF NOT EXISTS TABLE_TEST (I INTEGER)',  # shows warnings logged
-    'INSERT INTO TABLE_TEST VALUES (0)',
-    'CREATE TABLE IF NOT EXISTS TABLE_TEST2 (I INTEGER)',
-    'DROP TABLE TABLE_TEST',
-    'DROP TABLE TABLE_TEST2',
-]
+    """CREATE TABLE IF NOT EXISTS FIRST_TABLE (
+        dt date,
+        dag_id character varying,
+        primary key (dt, dag_id)
+    )"""
+    ]
 
 with DAG(
     dag_id='dag_with_postgres_operator_v01',
